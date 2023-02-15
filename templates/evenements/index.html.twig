@@ -1,0 +1,46 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}Evenements index{% endblock %}
+{##}
+{% block body %}
+<div style = "position:relative; left:200px; top:100px;">
+
+   <center> <h1>Evenements index</h1></center>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>Photo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for evenement in evenements %}
+            <tr>
+                <td>{{ evenement.id }}</td>
+                <td>{{ evenement.titre }}</td>
+                <td>{{ evenement.description }}</td>
+                <td>{{ evenement.date ? evenement.date|date('Y-m-d') : '' }}</td>
+                <td>{{ evenement.photo }}</td>
+                <td>
+                    <a href="{{ path('app_evenements_show', {'id': evenement.id}) }}">show</a>
+                    <a href="{{ path('app_evenements_edit', {'id': evenement.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>  
+<div style = "position:relative; left:300px; top:180px;">
+<p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><a href="{{ path('app_evenements_new') }}" class="btn btn-primary px-4 py-3">Create</a></p></div>
+  
+    </div>
+{% endblock %}

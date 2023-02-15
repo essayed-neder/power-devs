@@ -1,0 +1,44 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}Evenements{% endblock %}
+
+{% block body %}
+<div style = "position:relative; left:400px; top:60px;">
+    <h1>Evenements</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ evenement.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ evenement.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ evenement.description }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ evenement.date ? evenement.date|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+                <td>{{ evenement.photo }}</td>
+            </tr>
+            <tr></td><th><p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><a href="{{ path('app_evenements_index') }}" class="btn btn-primary px-4 py-3">Back</a></p></div>
+    </td></tr></th>
+
+     <tr></td><th>  <div style = "position:relative; left:400px; top:-90px;">
+<p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><a href="{{ path('app_evenements_edit', {'id': evenement.id}) }}" class="btn btn-primary px-4 py-3">Edit</a></p></div>
+   </td></tr></th>
+        </tbody>
+    </table>
+ 
+
+  
+    </div>
+  
+{% endblock %}

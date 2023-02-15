@@ -1,0 +1,13 @@
+{% extends 'front.html.twig' %}
+
+{% block title %}New Inscriptions{% endblock %}
+
+{% block body %}
+
+    <h1>Create new Inscriptions</h1>
+
+{{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+    {{ include('inscriptions/_form.html.twig') }}
+
+    <a href="{{ path('app_evenements_index') }}">back to list</a>
+{% endblock %}

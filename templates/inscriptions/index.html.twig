@@ -1,0 +1,43 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}Inscriptions index{% endblock %}
+
+{% block body %}
+
+    <h1>Inscriptions index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Idinscri</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Tel</th>
+                <th>Genre</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for inscription in inscriptions %}
+            <tr>
+                <td>{{ inscription.idinscri }}</td>
+                <td>{{ inscription.nom }}</td>
+                <td>{{ inscription.prenom }}</td>
+                <td>{{ inscription.tel }}</td>
+                <td>{{ inscription.genre }}</td>
+                <td>
+                    <a href="{{ path('app_inscriptions_show', {'idinscri': inscription.idinscri}) }}">show</a>
+                    <a href="{{ path('app_inscriptions_edit', {'idinscri': inscription.idinscri}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+<div style = "position:relative; left:500px; top:20px;">
+
+    <a href="{{ path('app_inscriptions_new') }}">Create new</a>
+{% endblock %}
