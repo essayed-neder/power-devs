@@ -3,6 +3,8 @@
 {% block title %}Inscriptions index{% endblock %}
 
 {% block body %}
+<div style = "position:relative; left:300px; top:100px;">
+
 
     <h1>Inscriptions index</h1>
 
@@ -37,7 +39,6 @@
         {% endfor %}
         </tbody>
     </table>
-<div style = "position:relative; left:500px; top:20px;">
-
-    <a href="{{ path('app_inscriptions_new') }}">Create new</a>
+<div style = "position:relative; left:50px; top:50px;">
+<p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><a href="{{ path('app_inscriptions_new') }}" class="btn btn-primary px-4 py-3">Create</a></p></div>
 {% endblock %}

@@ -44,6 +44,11 @@ class EvenementsController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $file = $evenement->getPhoto();
+            $filename = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move($this->getParameter('uploads'),$filename);
+            $evenement->setPhoto($filename);
+
             $entityManager->persist($evenement);
             $entityManager->flush();
 
@@ -71,6 +76,12 @@ class EvenementsController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $file = $evenement->getPhoto();
+            $filename = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move($this->getParameter('uploads'),$filename);
+            $evenement->setPhoto($filename);
+
+            $entityManager->persist($evenement);
             $entityManager->flush();
 
             return $this->redirectToRoute('app_evenements_index', [], Response::HTTP_SEE_OTHER);

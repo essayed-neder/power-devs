@@ -43,7 +43,7 @@ class Evenements
      */
     #[Assert\NotBlank (message:"veuillez saisir votre s ")]
     #[Assert\Length(min:5)]
-    #[Assert\Length(max:15)]
+    
 
     private $description;
 
@@ -102,12 +102,12 @@ class Evenements
         return $this;
     }
 
-    public function getPhoto(): ?string
+    public function getPhoto()
     {
         return $this->photo;
     }
 
-    public function setPhoto(string $photo): self
+    public function setPhoto( $photo)
     {
         $this->photo = $photo;
 

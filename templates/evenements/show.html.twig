@@ -26,7 +26,7 @@
             </tr>
             <tr>
                 <th>Photo</th>
-                <td>{{ evenement.photo }}</td>
+                <td><img src="{{ asset('uploads/'~evenement.photo) }}" style=" width:60px; height:50px; " alt=""/></td>  
             </tr>
             <tr></td><th><p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><a href="{{ path('app_evenements_index') }}" class="btn btn-primary px-4 py-3">Back</a></p></div>
     </td></tr></th>

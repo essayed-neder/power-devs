@@ -3,7 +3,7 @@
 {% block title %}Evenements index{% endblock %}
 {##}
 {% block body %}
-<div style = "position:relative; left:200px; top:100px;">
+<div style = "position:relative; left:300px; top:100px;">
 
    <center> <h1>Evenements index</h1></center>
 
@@ -25,10 +25,9 @@
                 <td>{{ evenement.titre }}</td>
                 <td>{{ evenement.description }}</td>
                 <td>{{ evenement.date ? evenement.date|date('Y-m-d') : '' }}</td>
-                <td>{{ evenement.photo }}</td>
-                <td>
-                    <a href="{{ path('app_evenements_show', {'id': evenement.id}) }}">show</a>
-                    <a href="{{ path('app_evenements_edit', {'id': evenement.id}) }}">edit</a>
+<td><img src="{{ asset('uploads/'~evenement.photo) }}" style=" width:60px; height:50px; " alt=""/></td>                          
+                 <td>   <a href="{{ path('app_evenements_show', {'id': evenement.id}) }}">show</a>
+                   <a href="{{ path('app_evenements_edit', {'id': evenement.id}) }}">edit</a></td>
                 </td>
             </tr>
         {% else %}

@@ -21,8 +21,8 @@
                 <td>{{ evenement.titre }}</td>
                 <td>{{ evenement.description }}</td>
                 <td>{{ evenement.date ? evenement.date|date('Y-m-d') : '' }}</td>
-                <td>{{ evenement.photo }}</td>
-                <td> <a href="{{ path('app_inscriptions_new') }}">Inscrire</a></td>
+                <td><img src="{{ asset('uploads/'~evenement.photo) }}" style=" width:60px; height:50px; " alt=""/></td>                
+                <td><a href="{{ path('app_inscriptions_new') }}"><span class="badge bg-warning">inscrire</span></a></td>
                
             </tr>
         {% else %}
